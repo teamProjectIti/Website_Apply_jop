@@ -1,0 +1,90 @@
+@model WebApplication1.Models.Details_jop
+
+@{
+    ViewData["Title"] = "Create Category";
+}
+
+<h1 class="text-primary">Create New Item</h1>
+
+<hr />
+<div class="row text-center p-2 rounded-4 border box-shadow ">
+    <div class="col-md-7 p-3">
+        <form asp-action="Create" enctype="multipart/form-data">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-6">
+                         <label asp-for="TitleJop" class="control-label"></label>
+                    </div>
+                    <div class="col-6">
+                        <input asp-for="TitleJop" class="form-control" />
+                        <span asp-validation-for="TitleJop" class="text-danger"></span>
+                    </div>
+                 </div>
+                </div>
+                
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                             <label asp-for="ContentJop" class="control-label"></label>
+                        </div>
+                        <div class="col-6">
+                            <input asp-for="ContentJop" class="form-control" />
+                            <span asp-validation-for="ContentJop" class="text-danger"></span>
+                        </div>
+                     </div>
+                </div>
+          <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                             <label asp-for="Required_jop" class="control-label"></label>
+                        </div>
+                        <div class="col-6">
+                            <input asp-for="Required_jop" class="form-control" />
+                            <span asp-validation-for="Required_jop" class="text-danger"></span>
+                        </div>
+                     </div>
+                </div> 
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                             <label asp-for="cat_Id" class="control-label"></label>
+                        </div>
+                        <div class="col-6">
+                          <select asp-for="cat_Id" class ="form-control" asp-items="ViewBag.cat_Id"></select>
+                            <span asp-validation-for="cat_Id" class="text-danger"></span>
+                        </div>
+                     </div>
+                </div> 
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-6">
+                             <label asp-for="DatePublisher" class="control-label"></label>
+                        </div>
+                        <div class="col-6">
+                            <input asp-for="DatePublisher" class="form-control" />
+                            <span asp-validation-for="DatePublisher" class="text-danger"></span>
+                        </div>
+                     </div>
+                </div>
+         
+
+           
+
+            <div class="container ">
+                <div class="row text-center offset-4">
+                    <div class="col-6">
+                        <input type="submit" value="Create" class="btn btn-primary w-100" />
+                    </div>
+                    <div class="col-6">
+                         <a asp-action="Index" class="btn btn-light w-100">Back to List</a>
+                    </div>
+            </div>
+            </div>
+  
+        </form>
+    </div>
+</div>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
